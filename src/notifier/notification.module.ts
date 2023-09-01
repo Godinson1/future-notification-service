@@ -8,13 +8,7 @@ import { NotificationEvents } from './events/notification.event';
 import { SmsModule } from 'src/sms/sms.module';
 
 @Module({
-  imports: [
-    RmqModule,
-    AuthModule,
-    RmqModule.register({ name: AUTH_SERVICE }),
-    MailModule,
-    SmsModule,
-  ],
+  imports: [AuthModule, RmqModule.register({ name: AUTH_SERVICE }), MailModule, SmsModule],
   controllers: [NotificationController],
   providers: [NotificationService, NotificationEvents],
 })
